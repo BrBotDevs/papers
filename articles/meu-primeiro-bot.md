@@ -4,9 +4,9 @@ Os BOTS de chats hoje ja são uma realidade, eles ja estão presente nos aplicat
 
 ## Criando o seu BOT
 
-Para esse simples exemplo sera utilizado o JavaScript na plataforma NodeJS em conjunto com a API do Telegram, caso voce nao esteja familiarizado com essa plataforma, voce pode conferir esse otimo artigo aqui do Tabeless [Como instalar Node.js no Linux corretamente](https://tableless.com.br/como-instalar-node-js-no-linux-corretamente-ubuntu-debian-elementary-os/)
+Para esse simples exemplo sera utilizado o JavaScript na plataforma NodeJS em conjunto com a API do Telegram, caso voce nao esteja familiarizado com essa plataforma, voce pode conferir esse otimo artigo aqui do Tableless [Como instalar Node.js no Linux corretamente](https://tableless.com.br/como-instalar-node-js-no-linux-corretamente-ubuntu-debian-elementary-os/)
 
-Para fazer a instalação da API do Telegram execute o seguinte comando no NodeJS:
+Para fazer a instalação da API do Telegram execute o seguinte comando no terminal/prompt de comando:
 
 ```
 npm install node-telegram-bot-api --save
@@ -43,7 +43,7 @@ const bot = new TelegramBot( TOKEN, { polling: true } )
 ```
 ## Entendo como o BOT funciona
 
-Agora ja temos o nosso BOT configurado, vamos tentar entender um pouco como ele funciona. Vamos criando o comando mais basico que ele possa entender.
+Agora que já temos o nosso BOT configurado, vamos tentar entender um pouco como ele funciona. Vamos começar criando o comando mais basico que ele possa entender.
 
 ```js
 bot.on('message', function(msg){
@@ -87,11 +87,11 @@ Com essa estrutura voce consegue perceber algumas informações importantes como
 
 O BOT trabalha escutando alguns eventos, para esse simples BOT nos vamos trabalhar apenas com um comando basico que escuta as mensagens enviadas pelo chat e retorna a mesma mensagem para quem enviou.
 
-Para isso vamos utilizar o vento onText, que como voce deve estar imaginando ele escuta os textos enviados nas mensagens.
+Para isso vamos utilizar o evento onText, que, como você deve estar imaginando, escuta os textos enviados nas mensagens.
 
-Para mais detalhes sobre os tipos de eventos voce pode consultar a documentação da API: [Usage - node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/usage.md)
+Para mais detalhes sobre os de eventos suportados, você pode consultar a documentação da API: [Usage - node-telegram-bot-api](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/usage.md)
 
-Um detalhe desse evento e que ele recebe como primeiro parametro uma RegEx, o que nos permite verificar o texto enviado. Vamos ao exemplo:
+Um detalhe desse evento é que ele recebe como primeiro parametro uma RegEx, o que nos permite verificar o texto enviado. Vamos ao exemplo:
 
 ```js
 bot.onText( /\/echo (.*)/, function(msg, match){
@@ -125,7 +125,7 @@ echo match:  [ '/echo oi',
   input: '/echo oi' ]
 ```
 
-A estrutura do 'msg' ja foi apresentada a voce anteriormente, agora fique atento a estrutura do objeto match que retorno:
+A estrutura do 'msg' ja foi apresentada a voce anteriormente, agora fique atento a estrutura do objeto match:
 
 ```
 echo match:  [ '/echo oi',
@@ -134,7 +134,7 @@ echo match:  [ '/echo oi',
   input: '/echo oi' ]
 ```
 
-Ele e simplismente um array que contém o resultado do match testando a mensagem recebida com a RegEx que foi definida no onText.
+Ele é simplismente um array que contém o resultado do match testando a mensagem recebida com a RegEx que foi definida no onText.
 
 Com isso podemos identificar o que esta em cada posição do array:
 
@@ -143,7 +143,7 @@ Com isso podemos identificar o que esta em cada posição do array:
 * na posiçao 2: o índice onde foi encontrada a RegEx
 * na posiçao 3: a entrada
 
-Como o objetivo do comando /echo e responder com o mesmo texto enviado, o que nos interessa e o item na posição 1 desse array.
+Como o objetivo do comando /echo e responder com o mesmo texto enviado, o que nos interessa é o item na posição 1 desse array.
 
 Para fazer o bot enviar uma mensagem, vamos utilizar a função bot.sendMessage, da seguinte maneira:
 
@@ -180,4 +180,4 @@ Com isso, o seu bot vai ter a função /echo que funciona da seguinte forma:
 
 O código desse projeto esta disponivel no [GitHub](https://github.com/rafaelvicio/primeiro-bot) do autor.
 
-Aos que estiverem interessados em continuar com os estudos de desenvolvimentos de BOT, queria apresentar um [Grupo no Telegram](https://t.me/brbotdevs) para reunir essa comunidade.
+Aos que estiverem interessados em continuar com os estudos de desenvolvimentos de BOT, junte-se ao nosso [grupo no Telegram](https://t.me/brbotdevs) para unir-se à comunidade.
